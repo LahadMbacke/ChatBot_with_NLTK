@@ -33,7 +33,7 @@ def preprocessing_text(text):
 
 corpus = [preprocessing_text(sentence) for sentence in sentences]
 
-print(corpus)
+#print(corpus)
 
 #Greetings
 GREETING_INPUTS = ("hello", "hi", "greetings", "sup", "what's up", "hey", "nods", "hi there", "hello", "I am glad! you are talking to me", "good morning", "good evening", "good afternoon", "good day", "good night", "good to see you", "nice to meet you", "pleased to meet you", "how do you do", "how are you", "how are you doing", "how's it going", "howdy", "how's it hanging", "what's happening", "what's new", "what's going on", "what's the news")
@@ -65,4 +65,18 @@ def answer(user_input):
 
 
 
-
+print("Bot: I am a chatbot. I will answer your queries about Chatbots. If you want to exit, type Bye!")
+exit_list = ['exit', 'bye', 'quit', 'break', 'stop', 'goodbye', 'see you', 'later']
+while True:
+    user_input = input()
+    user_input = user_input.lower()
+    if user_input in exit_list:
+        print("Lahad: Bye! take care..")
+        break
+    else:
+        if greeting(user_input) != None:
+            print("Lahad: " + greeting(user_input))
+        else:
+            print("Lahad: ", end="")
+            print(answer(user_input))
+            sentences.remove(user_input)
